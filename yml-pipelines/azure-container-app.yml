@@ -10,7 +10,7 @@ trigger:
       - master
 
 variables:
-  IMAGE_TAG: 'v1'                              # Change to v2 and push to trigger deploy
+  IMAGE_TAG: 'v2'                              # Change to v2 and push to trigger deploy
   DOCKER_IMAGE: '03sarath/yolo-mlops'
   CONTAINER_APP_NAME: 'ml-app'
   RESOURCE_GROUP: 'ml-rg'
@@ -60,7 +60,7 @@ stages:
       timeoutInMinutes: 5
       inputs:
         notifyUsers: |
-          sarath@psitrontech.com
+          udayasarna@outlook.com
         instructions: 'Please validate the build configuration and resume'
         onTimeout: 'resume'
 
@@ -76,7 +76,7 @@ stages:
     - task: AzureCLI@2
       displayName: Deploy Container App (Staging)
       inputs:
-        azureSubscription: 'Azure-ARM-ai-app'
+        azureSubscription: 'azure-ARM-ai-app'
         scriptType: bash
         scriptLocation: inlineScript
         inlineScript: |
@@ -145,7 +145,7 @@ stages:
     - task: AzureCLI@2
       displayName: Deploy Container App (Production)
       inputs:
-        azureSubscription: 'Azure-ARM-ai-app'
+        azureSubscription: 'azure-ARM-ai-app'
         scriptType: bash
         scriptLocation: inlineScript
         inlineScript: |
